@@ -8,7 +8,6 @@ package ch04;
  *  alt + shift  + j
  *  template 
  */
-
 public class Hw02
 {
 	public static void main(String[] args)
