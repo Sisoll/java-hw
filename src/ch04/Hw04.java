@@ -31,9 +31,9 @@ public class Hw04
 			var sum = 0;
 			var prime = "" ; 
 			
-			for ( int i = (numInput -1) ; i >= 2 ; i--)
+			for ( var i = (numInput -1) ; i >= 2 ; i--)
 			{
-				boolean isPrime = true ;
+				var isPrime = true ;
 			//	System.out.println("  i " ); 
 				for (var j = 2 ; j < (i -1 ) ; j++)
 				{	
@@ -46,12 +46,12 @@ public class Hw04
 				}
 				if (isPrime)
 				{
-					prime += i + " ";
+					prime = i + " " + prime;
 					sum += i;
 				}
 			}	
-			System.out.println("質數有： " + prime); 
-			System.out.println("在 1 到 " + numInput + " 之間的質數和為 " + sum); 
+			System.out.println("在 1 到 " + numInput + " 之間的質數有: " + prime); 
+			System.out.println("在 1 到 " + numInput + " 之間的質數和: " + sum); 
 		}	
 	}
 }	
