@@ -9,38 +9,49 @@ import java.util.Scanner;
  *
  */
 
-
 public class Hw04
 {
 	public static void main(String[] args)
 	{
 		System.out.println("請輸入一個正整數");
-		Scanner Obj = new Scanner(System.in);
-		int numInput = Obj.nextInt();
-		Obj.close();
+		var scanner = new Scanner(System.in);
+		var numInput = scanner.nextInt();
+		scanner.close();
 		
-		boolean isPrime = true ;
-		
-		//// 如果輸入的是2,因為在條件式中已經不合條件(2< (2+1)/2),自動跳出迴圈,所以會維持布林的true,也就是質數
-		for (int i = 2 ; i < (numInput+1)/2 ; i++)   
+		if (numInput == 1)
 		{
-			if (numInput % i == 0)
+			System.out.println("所輸入的數字為 1 , 1 到 1 之間並沒有任何質數"); 
+		}
+		else if (numInput == 2)  
+		{
+			System.out.println("在 1 到 2 之間的質數和 , 如果不包括首尾的話 ,其值為0"); 
+		}	
+		else if (numInput >=3)
+		{
+			var sum = 0;
+			var prime = "" ; 
+			
+			for ( int i = (numInput -1) ; i >= 2 ; i--)
 			{
-				isPrime = false;
+				boolean isPrime = true ;
+			//	System.out.println("  i " ); 
+				for (var j = 2 ; j < (i -1 ) ; j++)
+				{	
+					if ( i % j ==0)
+					{
+						isPrime = false ;
+						break;
+					}
+					
+				}
+				if (isPrime)
+				{
+					prime += i + " ";
+					sum += i;
+				}
 			}	
-		}
-		
-		if (isPrime)
-		{
-			System.out.println(numInput + " 是質數");
-		}
-		else if (numInput ==1) 
-		{
-			System.out.println(numInput + " 不是質數");
-		}
-		else 
-		{
-			System.out.println(numInput + " 不是質數");
-		}
-	}	
-}
+			System.out.println("質數有： " + prime); 
+			System.out.println("在 1 到 " + numInput + " 之間的質數和為 " + sum); 
+		}	
+	}
+}	
