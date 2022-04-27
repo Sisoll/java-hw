@@ -13,9 +13,9 @@ public class Hw05
 	{
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("請輸入年份(西元)");
-		int year = scanner.nextInt();
+		var year = scanner.nextInt();
 		System.out.println("請輸入月份");
-		int month = scanner.nextInt();
+		var month = scanner.nextInt();
 		scanner.close();
 
 		// 計算是否為閏年
