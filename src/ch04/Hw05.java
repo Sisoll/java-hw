@@ -11,24 +11,21 @@ public class Hw05
 {
 	public static void main(String[] args)
 	{
-		Scanner Obj = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("請輸入年份(西元)");
-		int year = Obj.nextInt();
+		int year = scanner.nextInt();
 		System.out.println("請輸入月份");
-		int month = Obj.nextInt();
-		Obj.close();
+		int month = scanner.nextInt();
+		scanner.close();
 
 		// 計算是否為閏年
 		boolean isLeapYear;
 
-		if (year % 4 != 0)
+		if ( (year % 4 != 0) || (year % 100 == 0 && year % 400 != 0) )
 		{
 			isLeapYear = false;
 		} 
-		else if (year % 100 == 0 && year % 400 != 0)
-		{
-			isLeapYear = false;
-		} 
+
 		else
 		{
 			isLeapYear = true;
@@ -38,9 +35,7 @@ public class Hw05
 		int day;
 		switch (month)
 		{
-		case 1:
-			day = 31;
-			break;
+
 		case 2:
 			if (isLeapYear)
 			{
@@ -51,35 +46,21 @@ public class Hw05
 				day = 28;
 			}
 			break;
+		case 1:
 		case 3:
-			day = 31;
-			break;
-		case 4:
-			day = 30;
-			break;
 		case 5:
-			day = 31;
-			break;
-		case 6:
-			day = 30;
-			break;
 		case 7:
-			day = 31;
-			break;
 		case 8:
-			day = 31;
-			break;
-		case 9:
-			day = 30;
-			break;
 		case 10:
+		case 12: 
 			day = 31;
 			break;
+			
+		case 4:
+		case 6:
+		case 9:
 		case 11:
 			day = 30;
-			break;
-		case 12:
-			day = 31;
 			break;
 		default:
 			day = -1;
