@@ -2,7 +2,7 @@ package ch04;
 import java.util.Scanner;
 
 /**
- * 
+ *
  * @author SisolShie 5.請設計一程式，可讀入兩個正整數，表示year: 年、month: 月，印出該年該月有幾天
  *
  */
@@ -18,13 +18,16 @@ public class Hw05
 		var month = scanner.nextInt();
 		scanner.close();
 
+        // Java 8 可用 java.time.YearMonth
+        // Java 7 以前用 java.util.GregorianCalendar
+
 		// 計算是否為閏年
 		boolean isLeapYear;
 
 		if ( (year % 4 != 0) || (year % 100 == 0 && year % 400 != 0) )
 		{
 			isLeapYear = false;
-		} 
+		}
 
 		else
 		{
@@ -40,7 +43,7 @@ public class Hw05
 			if (isLeapYear)
 			{
 				day = 29;
-			} 
+			}
 			else
 			{
 				day = 28;
@@ -52,10 +55,10 @@ public class Hw05
 		case 7:
 		case 8:
 		case 10:
-		case 12: 
+		case 12:
 			day = 31;
 			break;
-			
+
 		case 4:
 		case 6:
 		case 9:
@@ -70,7 +73,7 @@ public class Hw05
 		if (day != -1)
 		{
 			System.out.println("西元" + year + "年 " + month + "月有 " + day + "天");
-		} 
+		}
 		else
 		{
 			System.out.println("月份輸入錯誤");
