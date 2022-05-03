@@ -74,9 +74,6 @@ public class Student {
 	public void showScores() {
 	System.out.println( "  編號: " + no + "  姓名: " + name + "  國文成績: " + chi + "  英文成績: " + eng + "  數學成績: " + math);
 	
-	
 	}
-	//TODO  showSCORE
-	
-	
+		
 }
