@@ -7,22 +7,23 @@ import java.util.Scanner;
  * 
  * 10.請定義一個成績計算器類別ScoreCalculator..
  * 
- * 2個private欄位: studentArray(學生陣列)、studentCount(已加入學生人數) 2個public建構子 無參數建構子:
- * 初始化學生人數上限為5 1個參數建構子: 傳入一int值studentLimit，表示學生人數上限 多個public方法 addStudent(學生):
- * 可加入一學生物件 getMaxScoreStudent(科目): 回傳參數所指定科目的最高分學生 getMinScoreStudent(科目):
- * 回傳參數所指定科目的最低分學生 getAvgScore(科目): 回傳參數所指定科目的平均分數
- *
- * remark : 在close scanner的時候也會把system.in給關掉,這時候再去run他會有問題 還想不到在哪裡關所以先不關....
+ * 2個private欄位: studentArray(學生陣列)、studentCount(已加入學生人數) 
+ * 2個public建構子: 無參數建構子:初始化學生人數上限為5 1個參數建構子: 傳入一int值studentLimit，表示學生人數上限 
+ * 多個public方法 addStudent(學生):
+ * 可加入一學生物件 
+ * getMaxScoreStudent(科目):  回傳參數所指定科目的最高分學生 
+ * getMinScoreStudent(科目):  回傳參數所指定科目的最低分學生 
+ * getAvgScore(科目): 回傳參數所指定科目的平均分數
  * 
  * 
  * @author SisolShie
  * 
- *         //TODO 科目輸入的防呆
  */
 public class ScoreCalculator {
 	public static void main(String[] args) {
 
 		// 1.利用Student建立學生物件 st1 / st2 / st3 / st4 /st5
+		//  科目依序為 chi , eng , math
 		Student st1 = new Student(1, "A", 50, 80, 60);
 		Student st2 = new Student(2, "B", 66, 85, 93);
 		Student st3 = new Student(3, "C", 45, 68, 25);
@@ -43,10 +44,10 @@ public class ScoreCalculator {
 		s.setStudentArray(s.addStudent(st5, s.getStudentCount()), s.getStudentCount());
 		s.setStudentArray(s.addStudent(st6, s.getStudentCount()), s.getStudentCount());
 
-		// 最高分/最低分/平均值
-		System.out.println(s.getMaxScoreStudent());
-		System.out.println(s.getMinScoreStudent());
-		System.out.println(s.getAvgScore());
+		// 最高分/最低分/平均值 , 限定字串為 chi , eng , math
+		System.out.println(s.getMaxScoreStudent("chi"));
+		System.out.println(s.getMinScoreStudent("chi"));
+		System.out.println(s.getAvgScore("chi"));
 
 	}
 
@@ -141,14 +142,13 @@ public class ScoreCalculator {
 		return arr;
 	}
 
-	// 判斷科目
-	public int selectSubject() {
-		System.out.println("請輸入科目:(chi / eng / math)");
-		Scanner scanner = new Scanner(System.in);
-		String obj = scanner.nextLine();
-
+	// 判斷科目所在陣列的column位置
+	public int selectSubject(String subject) {
+		
+		String sub = subject ;
+		
 		int i = -1;
-		switch (obj) {
+		switch (sub) {
 		case "chi": i = 2;
 			break;
 		case "eng":	i = 3;
@@ -163,9 +163,9 @@ public class ScoreCalculator {
 	}
 
 	// 找分數最大的
-	public String getMaxScoreStudent() {
+	public String getMaxScoreStudent(String sub) {
 
-		int subject = this.selectSubject();
+		int subject = this.selectSubject(sub);
 		int max = this.getStudentArray()[0][subject];
 		int order = 0;
 		
@@ -178,13 +178,13 @@ public class ScoreCalculator {
 		System.out.println(order);
 		String maxPerson = nameList[order];
 
-		return "分數最高的是 :" + maxPerson;
+		return sub + "分數最高的是 : " + maxPerson;
 	}
 
 	// 找最分數最高的
-	public String getMinScoreStudent() {
+	public String getMinScoreStudent(String sub) {
 		
-		int subject = this.selectSubject();
+		int subject = this.selectSubject(sub);
 		int min = this.getStudentArray()[0][subject];
 		int order = 0;
 		
@@ -196,22 +196,22 @@ public class ScoreCalculator {
 		}
 		String minPerson = nameList[order];
 
-		return "分數最高的是 :" + minPerson;
+		return sub + "科目中分數最低的是 : " + minPerson;
 	}
 
 	// 找平均
-	public String getAvgScore() {
+	public String getAvgScore(String sub) {
 		
 		String avg = "";
 		double sum = 0;
-		int subject = this.selectSubject();
+		int subject = this.selectSubject(sub);
 		
 		for (var i = 0; i < this.studentLimit; i++) {
 			sum += this.getStudentArray()[i][subject];
 		}
-		avg = Double.toString((sum / this.getStudentCount()));
+		avg = Double.toString((sum / (this.getStudentCount() + 1) ));
 
-		return "平均成績是 : " + avg;
+		return sub + "科目的平均成績是 : " + avg;
 	}
 
 }
