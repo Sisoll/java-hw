@@ -26,32 +26,34 @@ public class Circle extends Shape {
 
 	}
 
-	protected int radius;
+	private double radius;
 
 	public Circle() {
 	}
 
-	public Circle(int radius) {
+	public Circle(double radius) {
 		this.radius = radius;
 	}
 
 	@Override
 	public double getArea() {
-		double result = this.radius * this.radius * Shape.PI;
+		//double result = this.radius * this.radius * Math.PI;
+		double result = this.radius * this.radius * PI;
 		return result;
 	}
 
 	@Override
 	public double getPerimeter() {
-		double result = 2 * radius * Shape.PI;
+		//double result = 2 * radius * Math.PI;
+		double result = 2 * radius * PI;
 		return result;
 	}
 
-	public int getRadius() {
+	public double getRadius() {
 		return radius;
 	}
 
-	public void setRadius(int radius) {
+	public void setRadius(double radius) {
 		this.radius = radius;
 	}
 }

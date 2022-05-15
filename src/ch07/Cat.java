@@ -2,9 +2,8 @@ package ch07;
 
 /**
  * 
- * 6.類別Dog(狗)、Cat(貓)、Bird(鳥) 繼承Pet 
- * 建構子: 無參數建構子、3個參數建構子(nickname、age、color) 
- * 方法: * (覆寫Pet的方法) talk()、欄位的Setter/Getter
+ * 6.類別Dog(狗)、Cat(貓)、Bird(鳥) 繼承Pet 建構子: 無參數建構子、3個參數建構子(nickname、age、color) 方法: *
+ * (覆寫Pet的方法) talk()、欄位的Setter/Getter
  * 
  * @author SisolShie
  *
@@ -12,23 +11,16 @@ package ch07;
 
 public class Cat extends Pet {
 
-	public String nickname;
-	private int age;
-	private String color;
-
-	
 	public Cat() {
 	}
-	
-	public Cat(String nickname, int age, String color) {
-		this.nickname = nickname;
-		this.age = age;
-		this.color = color;
+
+	public Cat(String nickname, int age, Color color) {
+		super(nickname, age, color);
 	}
 
 	@Override
-	void talk() {
-		System.out.println("喵喵");
+	public void talk() {
+		System.out.println("喵喵喵");
 	}
 
 	public String getNickname() {
@@ -47,11 +39,11 @@ public class Cat extends Pet {
 		this.age = age;
 	}
 
-	public String getColor() {
+	public Color getColor() {
 		return color;
 	}
 
-	public void setColor(String color) {
+	public void setColor(Color color) {
 		this.color = color;
 	}
 }

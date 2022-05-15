@@ -11,15 +11,27 @@ package ch07;
  *
  */
 public abstract class Vehicle {
-	int tankSize;
+	
+	private double tankSize;
 
-	abstract void gasUp();
+	public void gasUp() {
+		System.out.println("油加滿了~");
+	};
 
-	public int getTankSize() {
+	protected Vehicle() {
+	}
+	
+	protected Vehicle(double tankSize) {
+		this.tankSize = tankSize;
+	}
+
+
+
+	public double getTankSize() {
 		return tankSize;
 	}
 
-	public void setTankSize(int tankSize) {
+	public void setTankSize(double tankSize) {
 		this.tankSize = tankSize;
 	}
 

@@ -10,13 +10,10 @@ package ch04;
 
 public class Hw03
 {
-	public static void main(String[] args)
+	public static void main(String[] args) 
 	{
-		for (var i=2 ; i<33 ; i+=3)
-		{
+		for (var i=2 ; i<33 ; i+=3)	{
 			System.out.print(i + " ");
 		}
-		
 	}
-	
 }

@@ -1,5 +1,6 @@
 package ch06;
 
+import java.lang.invoke.SwitchPoint;
 import java.util.Arrays;
 
 /**
@@ -32,7 +33,7 @@ public class ScoreCalculator {
 		Student st5 = new Student(5, "E", 26, 90, 20);
 		Student st6 = new Student(6, "F", 96, 77, 33);
 
-		ScoreCalculator s = new ScoreCalculator(12); // 不給值的話上限只有5,輸入6以上的話需要給值才不會錯
+		ScoreCalculator s = new ScoreCalculator(12); // 不給值的話上限只有5 ; 如果有6個以上的學生就會出錯
 
 		s.addStudent(st1);
 		s.addStudent(st2);
@@ -43,14 +44,11 @@ public class ScoreCalculator {
 		
 		//System.out.println(s.getAvgScore("chi"));
 
-		System.out.println(s.getMaxScoreStudent("chi"));
-		System.out.println(s.getMinScoreStudent("chi"));
-		System.out.println(s.getAvgScore("chi"));
-
+		System.out.println(s.getMaxScoreStudent("math"));
+		System.out.println(s.getMinScoreStudent("math"));
+		System.out.println(s.getAvgScore("math"));
 	
 	}
-	
-	
 	
 	private Student[] studentArray;
 	private int studentCount;
@@ -82,30 +80,33 @@ public class ScoreCalculator {
 					maxScore = curChi;
 					maxStudent = curStudent;
 				}
+				break;
 			case "eng":
 				int curEng = curStudent.getEng();
 				if (curEng > maxScore) {
 					maxScore = curEng;
 					maxStudent = curStudent;
 				}
+				break;
 			case "math":
 				int curMath = curStudent.getMath();
 				if (curMath > maxScore) {
 					maxScore = curMath;
 					maxStudent = curStudent;
 				}
-
+				break;
 			}
 
 		}
 		return maxStudent.getName();
 	}
 
+	
 	public String getMinScoreStudent(String subject) {
 		Student minStudent = null;
 
 		int minScore = 101;
-
+		
 		for (int i = 0; i < studentCount; i++) {
 			Student curStudent = studentArray[i];
 			switch (subject) {
@@ -115,19 +116,21 @@ public class ScoreCalculator {
 					minScore = curChi;
 					minStudent = curStudent;
 				}
+				break;
 			case "eng":
 				int curEng = curStudent.getEng();
 				if (curEng < minScore) {
 					minScore = curEng;
 					minStudent = curStudent;
 				}
+				break;
 			case "math":
 				int curMath = curStudent.getMath();
 				if (curMath < minScore) {
 					minScore = curMath;
 					minStudent = curStudent;
 				}
-
+				break;
 			}
 
 		}

@@ -11,24 +11,13 @@ package ch07;
 
 public class Car extends Vehicle {
 
-	int tankSize;
-
 	public Car() {
 	}
 
-	public Car(int tankSize) {
+	public Car(double tankSize) {
+		super(tankSize);
 	}
 
-	@Override
-	void gasUp() {
-	}
 
-	public int getTankSize() {
-		return tankSize;
-	}
-
-	public void setTankSize(int tankSize) {
-		this.tankSize = tankSize;
-	}
 
 }

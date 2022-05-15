@@ -16,19 +16,13 @@ public class Hw02
 {
 	public static void main(String[] args)
 	{
-
-		for (int i = 9; i >= 2; i--)
-		{
-			for (int j = 2; j <= i; j++)
-			{
+		for (int i = 9; i >= 2; i--) {
+			for (int j = 2; j <= i; j++) {
 				System.out.print((i * j) + " ");
-				if (i == j)
-				{
+				if (i == j)	{
 					System.out.println();
 				}
 			}
 		}
-
 	}
-
 }

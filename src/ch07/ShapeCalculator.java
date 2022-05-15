@@ -20,6 +20,39 @@ package ch07;
  */
 public class ShapeCalculator {
 
+	private static Rectangle rectangle ;
+	private static Circle circle;
+	
+	//初始化, => new出來
+	static {
+		rectangle = new Rectangle();
+		circle = new Circle();		
+	}
+	
+	public static double getRectanglePerimeter(int length,int width) {
+		rectangle.setLength(length);
+		rectangle.setWidth(width);
+		return rectangle.getPerimeter();
+	}
+
+	public static double getRectangleArea(int length, int width) {
+		rectangle.setLength(length);
+		rectangle.setWidth(width);
+		return rectangle.getArea();
+	}
+
+	public static double getCirclePerimeter(int radius) {
+		circle.setRadius(radius);
+		return circle.getPerimeter();
+	}
+
+	public static double getCircleArea(double radius) {
+		circle.setRadius(radius);
+		return circle.getArea();
+	}	
+	
+	
+	
 	
 	public static void main(String[] args) {
 		System.out.println(getRectanglePerimeter(10,10));
@@ -28,34 +61,4 @@ public class ShapeCalculator {
 		System.out.println(getCirclePerimeter(10));
 	}
 	
-	static Rectangle rectangle ;
-	static Circle circle;
-	
-	//初始化, => new出來
-	static {
-		rectangle = new Rectangle();
-		circle = new Circle();		
-	}
-	
-	public static double getRectanglePerimeter(int length, int width) {
-		rectangle.length = length;
-		rectangle.width = width;
-		return rectangle.getPerimeter();
-	}
-
-	public static double getRectangleArea(int length, int width) {
-		rectangle.length = length;
-		rectangle.width = width;
-		return rectangle.getArea();
-	}
-
-	public static double getCirclePerimeter(int radius) {
-		circle.radius = radius;
-		return circle.getPerimeter();
-	}
-
-	public static double getCircleArea(int radius) {
-		circle.radius = radius;
-		return circle.getArea();
-	}	
 }

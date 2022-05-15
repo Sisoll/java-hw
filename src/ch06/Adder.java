@@ -10,37 +10,20 @@ package ch06;
  *
  */
 
-
 public class Adder {
 	private int x;
 	private int y;
 
-	int add(int x, int y) {
+	public Adder() {
+	}
+
+	public Adder(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	int add() {
 		int result = x + y;
 		return result;
-	}
-
-	Adder() {
-	}
-
-	Adder(int x, int y) {
-		this.x = x;
-		this.y = y;
-	}
-
-	public int getX() {
-		return x;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
 	}
 }

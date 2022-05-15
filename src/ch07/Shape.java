@@ -12,7 +12,7 @@ package ch07;
  */
 public abstract class Shape {
 
-	static final double PI = 3.14;
+	protected static  final double PI = 3.14;
 
 	public abstract double getPerimeter();
 

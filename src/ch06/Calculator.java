@@ -1,5 +1,7 @@
 package ch06;
 
+import java.math.BigDecimal;
+
 /**
  *
  * 2.請定義類別Calculator… 1個欄位: radix，表示數字系統的進位模式(預設10進位)，可接受2、8、10、16 4個方法:
@@ -15,74 +17,77 @@ package ch06;
  * 6.替第2題的類別Calculator加入1個方法:
  * getRandom()，接受2個int型態參數startNum、endNum，回傳1個介於這2個參數的亂數
  * 
- * remark: Integer.toString(int , 16) vs Integer.toHexString(int) signed vs
+ * 
+ * remark.1: 
+ * Integer.toString(int , 16) vs Integer.toHexString(int) signed vs
  * unsigned (沒有正負,10進位中其值和signed相加為2^n , for int,n=32)
+ * 
+ * remark.2:
+ * return可以代替break跳出switch case
+ * 
  * 
  * @author SisolShie
  * 
- * 
  */
 
-class Point {
-	double x;
-	double y;
-}
 
 public class Calculator {
 
-	//main裡面為測試區塊
+	// main裡面為測試區塊
 	public static void main(String[] args) {
-
-		Calculator cal = new Calculator(); // 若有定義建構子,則必須直接在這裡輸入欄位的"值"
+		
+		//System.out.println(BigDecimal.valueOf(0.1).add(BigDecimal.valueOf(0.2)).doubleValue());
+		//System.out.println(0.1+0.2);
+		var cal = new Calculator(); 
 
 		// cal.radix = 2;
 
-		var result = cal.add(5, 4);
+		var result = cal.div(5,0);
 		// cal.add(5,4);
 		// cal.sub(5,5);
 		// cal.mul(5,5);
 		// cal.div(5,5);
 		System.out.println(result);
 
-		Point p1 = new Point();
-		Point p2 = new Point();
+		Point point1 = new Point();
+		Point point2 = new Point();
 
-		p1.x = 0;
-		p1.y = 0;
+		point1.x = 0;
+		point1.y = 0;
 
-		p2.x = 3;
-		p2.y = 4;
-
-		cal.showdistance(cal.distance(p1, p2));
-		cal.showdistance(p1,p2);
+		point2.x = 3;
+		point2.y = 4;
+		
+		cal.p1= point1;   
+		cal.p2= point2;
+		
+		cal.showdistance(cal.distance());
+		
 
 		System.out.println("隨機整數為 : " + cal.getRandom(10, 15));
 	}
 
 	
-	int radix; // 會被當成0
+	
+	int radix = 10 ; // 如果不給值,預設會被當成0
 
 	Point p1;
 	Point p2;
 
 	private String ansToString(int ans) {
-		String result;
 
 		switch (radix) {
 		case 2:
-			result = "使用 2 進位的答案輸出為: " + Integer.toBinaryString(ans); // Integer類別
-			break;
+			return "使用 2 進位的答案輸出為: " + Integer.toBinaryString(ans); // Integer類別
 		case 8:
-			result = "使用 8 進位的答案輸出為: " + Integer.toOctalString(ans);
-			break;
+			return "使用 8 進位的答案輸出為: " + Integer.toOctalString(ans);
 		case 16:
-			result = "使用 16 進位的答案輸出為: " + Integer.toHexString(ans);
-			break;
-		default:
-			result = "使用 10 進位(預設)的答案輸出為: " + Integer.toString(ans);
-			break;
+			return "使用 16 進位的答案輸出為: " + Integer.toHexString(ans);
+		case 10:
+			return "使用 10 進位(預設)的答案輸出為: " + ans;
+		default: 
+			return "error";
 		}
-		return result;
 	}
 
 	String add(int x, int y) {
@@ -101,25 +106,30 @@ public class Calculator {
 	}
 
 	String div(int x, int y) {
-		int ans = x / y; // 只考慮整數部分,因為後面做進位的換算時只能吃int
+		int ans = x / y; // 只考慮整數部分,因為後面做n進位的換算時只能吃int
 		return ansToString(ans);
 	}
 
-	double distance(Point p1, Point p2) {
-		double xDistance = Math.abs(p1.x - p2.x);
-		double yDistance = Math.abs(p1.y - p2.y);
-		double ans = Math.sqrt(xDistance * xDistance + yDistance * yDistance);
+	double distance() {		
+		double ans = Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
 		System.out.println(ans);
 		return ans;
 	}
+	
+	double distance(Point p1 , Point p2) {		
+		double ans = Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
+		System.out.println(ans);
+		return ans;
+	}
+	
 
 	void showdistance(double dis) {
-		System.out.println("兩點的距離為 : " + dis);
+		System.out.println("P1( "+ p1.x +","+p1.y + " ) 以及P2( "+ p2.x +","+p2.y + " ) 的距離為 : " + dis);
 	}
 
 	void showdistance(Point p1, Point p2) {
-		double result = distance(p1, p2);
-		System.out.println("兩點的距離為 " + result);
+		double result = distance();
+		System.out.println("P1( "+ p1.x +" , "+p1.y + " ) 以及P2( "+ p2.x +" , "+p2.y + " ) 的距離為 : " + result);
 	}
 
 	String getRandom(int startNum, int endNum) {

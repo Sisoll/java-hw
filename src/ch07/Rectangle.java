@@ -27,13 +27,13 @@ public class Rectangle extends Shape {
 		re.showRectangle('*');
 	}
 
-	protected int length;
-	protected int width;
+	private double length;
+	private double width;
 
 	public Rectangle() {
 	}
 
-	public Rectangle(int length, int width) {
+	public Rectangle(double length, double width) {
 		this.length = length;
 		this.width = width;
 	}
@@ -42,7 +42,6 @@ public class Rectangle extends Shape {
 	public double getArea() {
 		double result = length * width;
 		return result;
-
 	}
 
 	@Override
@@ -70,19 +69,19 @@ public class Rectangle extends Shape {
 		}
 	}
 
-	public int getLength() {
+	public double getLength() {
 		return length;
 	}
 
-	public void setLength(int length) {
+	public void setLength(double length) {
 		this.length = length;
 	}
 
-	public int getWidth() {
+	public double getWidth() {
 		return width;
 	}
 
-	public void setWidth(int width) {
+	public void setWidth(double width) {
 		this.width = width;
 	}
 }

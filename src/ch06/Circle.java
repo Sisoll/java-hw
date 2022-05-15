@@ -8,27 +8,23 @@ package ch06;
  *
  */
 
-
 public class Circle {
 	private double radius;
-	final double PI = 3.14;
 
-	public double getPrimeter(double radius) {
-		double result = radius * 2 * PI;
+	public static void main(String[] args) {
+		Circle cir = new Circle();
+
+		cir.radius = 5;
+		System.out.println(cir.getArea());
+	}
+	
+	public double getPerimeter() {
+		double result = radius * 2 * Math.PI;
 		return result;
 	}
 
-	public double getArea(double radius) {
-		double result = radius * radius * PI;
+	public double getArea() {
+		double result = radius * radius * Math.PI;
 		return result;
 	}
-
-	public double getRadius() {
-		return radius;
-	}
-
-	public void setRadius(double radius) {
-		this.radius = radius;
-	}
-
 }

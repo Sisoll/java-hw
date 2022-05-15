@@ -1,4 +1,5 @@
 package ch04;
+
 import java.util.Scanner;
 
 /**
@@ -21,13 +22,10 @@ public class Hw05
 		// 計算是否為閏年
 		boolean isLeapYear;
 
-		if ( (year % 4 != 0) || (year % 100 == 0 && year % 400 != 0) )
-		{
+		if ( (year % 4 != 0) || (year % 100 == 0 && year % 400 != 0) ) {
 			isLeapYear = false;
 		} 
-
-		else
-		{
+		else {
 			isLeapYear = true;
 		}
 
@@ -37,15 +35,14 @@ public class Hw05
 		{
 
 		case 2:
-			if (isLeapYear)
-			{
+			if (isLeapYear)	{
 				day = 29;
 			} 
-			else
-			{
+			else {
 				day = 28;
 			}
 			break;
+			
 		case 1:
 		case 3:
 		case 5:
@@ -62,17 +59,16 @@ public class Hw05
 		case 11:
 			day = 30;
 			break;
+			
 		default:
 			day = -1;
 			break;
 		}
 
-		if (day != -1)
-		{
+		if (day != -1) {
 			System.out.println("西元" + year + "年 " + month + "月有 " + day + "天");
 		} 
-		else
-		{
+		else {
 			System.out.println("月份輸入錯誤");
 		}
 	}

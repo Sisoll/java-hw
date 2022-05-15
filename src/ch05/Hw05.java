@@ -17,36 +17,28 @@ import java.util.Arrays;
 	{4}
 }
  *
- * java 萬般皆物件
  */
 
 public class Hw05
 {
-
-	public static void main(String[] args)
-	{
+	
+	public static void main(String[] args){
 		//先設定第一層有幾個
 		var d2 = new int[8][];
 
 		//設定好巢狀矩陣的大小形狀,
-		//這段不需要確認用
-		for (int i = 0 , j = 8 ; i<d2.length ; i++ , j--)
-		{
+		for (int i = 0 , j = 8 ; i<d2.length ; i++ , j--) {
 			d2[i] = new int [j];	
-			//System.out.println(Arrays.toString(d2[i]));
 		}
 		
 		//把第二層的資料放進去
-		for (int i = 0 ; i < 8 ; i++ )
-		{
-			//	for (int j=7-i ; j>=0 ; j--)
-				for (int j=0 ; i+j < 8 ; j++)
-			{
+		for (var i = 0 ; i < 8 ; i++ ) {
+				for (var j=0 ; i+j < 8 ; j++){   
+					//for (var j=7-i ; j>=0 ; j--)  反過來填
 				d2[i][j] = (9-i)  * ( j + 2) ; 
 			}
 			System.out.println(Arrays.toString(d2[i]));
 		}
-		
 	}
 
 }

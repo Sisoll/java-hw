@@ -14,16 +14,11 @@ package ch07;
 
 public class Airplane extends Vehicle implements Flying {
 
-	int tankSize;
-
 	public Airplane() {
 	}
 
-	public Airplane(int tankSize) {
-	}
-
-	@Override
-	void gasUp() {
+	public Airplane(double tankSize) {
+		super(tankSize);
 	}
 
 	@Override
@@ -31,11 +26,5 @@ public class Airplane extends Vehicle implements Flying {
 		System.out.println("飛機會飛的其中一個原因是白努利原理");
 	}
 	
-	public int getTankSize() {
-		return tankSize;
-	}
 
-	public void setTankSize(int tankSize) {
-		this.tankSize = tankSize;
-	}
 }

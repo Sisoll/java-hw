@@ -14,12 +14,15 @@ public class Owner {
 
 		//建構pet型態的物件
 		Cat cat = new Cat();		
-		Dog dog = new Dog();
+		Pet dog = new Dog();
 		//建構vehicle(中的Car)物件
 		Car car = new Car();
 		
-		Owner owner1 = new Owner("TTTT", cat, car);
-		Owner owner2 = new Owner("SSSS", dog, car);
+		cat.setNickname("小橘");
+		
+		
+		Owner owner1 = new Owner("阿華", cat, car);
+		Owner owner2 = new Owner("阿明", dog, car);
 		
 		owner1.walkPet();
 		owner2.drive();
@@ -28,7 +31,7 @@ public class Owner {
 	String name;
 	Pet pet;
 	Vehicle vehicle;
-	
+		
 	public Owner() {
 	}
 
@@ -39,12 +42,13 @@ public class Owner {
 	}
 
 	void walkPet() {
-		System.out.print("溜寵物~");
+		System.out.print("溜寵物~  " + pet.nickname + "在");
 		pet.talk();
 	}
 
 	void drive() {
-		System.out.println("駕駛員是 : " + name);
+		System.out.println("車子的駕駛員是 : " + name);
+		vehicle.gasUp();
 	}
 
 	public String getName() {
