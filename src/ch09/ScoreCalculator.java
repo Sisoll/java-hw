@@ -2,6 +2,7 @@ package ch09;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Objects;
 
 /**
  *
@@ -48,7 +49,7 @@ public class ScoreCalculator {
 		// System.out.println(s.getMinScoreStudent(Subject.MATH));
 		// System.out.println(s.getAvgScore(Subject.MATH));
 
-		System.out.println(s.getTop3Student());
+		System.out.println(Arrays.toString(s.getTop3Student()));
 	}
 
 	private Student[] studentArray;
@@ -191,17 +192,13 @@ public class ScoreCalculator {
                 return 1;
             }
         };
-        Arrays.sort(this.studentArray, comparator);
 
-		var num = Math.min(3, studentCount);
-
-		String[] arr = new String[num];
-
-		for (var i = 0; i < arr.length; i++) {
-			arr[i] = this.studentArray[i].getName();
-		}
-		System.out.println(Arrays.toString(arr));
-		return arr;
+        return Arrays.stream(this.studentArray)
+            .filter(obj -> Objects.nonNull(obj))
+            .sorted(comparator)
+            .limit(3)
+            .map(student -> student.getName())
+            .toArray(String[]::new);
 	}
 
 	// * 加入一個方法getTop3Student()，回傳3科目總合最高的前3名學生，請利用Comparator介面 加上
