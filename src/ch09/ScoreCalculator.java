@@ -4,21 +4,21 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * 
+ *
  * 10.請定義一個成績計算器類別ScoreCalculator..
- * 
+ *
  * 2個private欄位: studentArray(學生陣列)、studentCount(已加入學生人數) 2個public建構子:
  * 無參數建構子:初始化學生人數上限為5 1個參數建構子: 傳入一int值studentLimit，表示學生人數上限 多個public方法
  * addStudent(學生): 可加入一學生物件 getMaxScoreStudent(科目): 回傳參數所指定科目的最高分學生
  * getMinScoreStudent(科目): 回傳參數所指定科目的最低分學生 getAvgScore(科目): 回傳參數所指定科目的平均分數
- * 
- * 
+ *
+ *
  * 9.請將第6章作業第10題的類別ScoreCalculator複製至本章的package，並完成以下事項..
  * 定義一個列舉Subject(科目)，有3個列舉值: CHI、ENG、MATH，
  * 並在類別ScoreCalculator的方法getMaxScoreStudent()、getMinScoreStudent()、getAvgScore()中使用
- * 
+ *
  * 加入一個方法getTop3Student()，回傳3科目總合最高的前3名學生，請利用Comparator介面 加上 Arrays.sort()來完成此方法
- * 
+ *
  * @author SisolShie
  *
  */
@@ -168,15 +168,15 @@ public class ScoreCalculator {
 
 	/*
 	 * public String[] getTop3Student(Student...students) {
-	 * 
+	 *
 	 * //List <Student> list = new ArrayList<>();
-	 * 
+	 *
 	 * Map<String, Student> map = new HashMap() ; for (Student s : students) {
 	 * map.put(s.getName(), s); }
-	 * 
-	 * 
+	 *
+	 *
 	 * String [] arr = new String[5];
-	 * 
+	 *
 	 * return arr; }
 	 */
 
@@ -185,11 +185,11 @@ public class ScoreCalculator {
 		Arrays.sort(this.studentArray, new Comparator<Student>() {
 
 			@Override
-			public int compare(Student o1, Student o2) {
-				if (o1 != null && o2 != null) {
-					int totalo1 = o1.getChi() + o1.getEng() + o1.getMath();
-					int totalo2 = o2.getChi() + o2.getEng() + o2.getMath();
-					return -(totalo1 - totalo2);
+			public int compare(Student s1, Student s2) {
+				if (s1 != null && s2 != null) {
+					int s1TotalGrade = s1.getChi() + s1.getEng() + s1.getMath();
+					int s2TotalGrade = s2.getChi() + s2.getEng() + s2.getMath();
+					return -(s1TotalGrade - s2TotalGrade);
 				} else {
 					return 1;
 				}
