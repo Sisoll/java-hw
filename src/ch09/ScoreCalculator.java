@@ -182,16 +182,13 @@ public class ScoreCalculator {
 
 	public String[] getTop3Student() {
 
-        Comparator<Student> comparator = new Comparator<>() {
-            @Override
-            public int compare(Student s1, Student s2) {
-                if (s1 != null && s2 != null) {
-                    int s1TotalGrade = s1.getChi() + s1.getEng() + s1.getMath();
-                    int s2TotalGrade = s2.getChi() + s2.getEng() + s2.getMath();
-                    return -(s1TotalGrade - s2TotalGrade);
-                } else {
-                    return 1;
-                }
+        Comparator<Student> comparator = (Student s1, Student s2) -> {
+            if (s1 != null && s2 != null) {
+                int s1TotalGrade = s1.getChi() + s1.getEng() + s1.getMath();
+                int s2TotalGrade = s2.getChi() + s2.getEng() + s2.getMath();
+                return -(s1TotalGrade - s2TotalGrade);
+            } else {
+                return 1;
             }
         };
         Arrays.sort(this.studentArray, comparator);
