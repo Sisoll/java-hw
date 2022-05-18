@@ -194,10 +194,10 @@ public class ScoreCalculator {
         };
 
         return Arrays.stream(this.studentArray)
-            .filter(obj -> Objects.nonNull(obj))
+            .filter(Objects::nonNull)
             .sorted(comparator)
             .limit(3)
-            .map(student -> student.getName())
+            .map(Student::getName)
             .toArray(String[]::new);
 	}
 
