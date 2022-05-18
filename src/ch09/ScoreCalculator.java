@@ -184,13 +184,9 @@ public class ScoreCalculator {
 	public String[] getTop3Student() {
 
         Comparator<Student> comparator = (s1, s2) -> {
-            if (s1 != null && s2 != null) {
-                int s1TotalGrade = s1.getChi() + s1.getEng() + s1.getMath();
-                int s2TotalGrade = s2.getChi() + s2.getEng() + s2.getMath();
-                return -(s1TotalGrade - s2TotalGrade);
-            } else {
-                return 1;
-            }
+            int s1TotalGrade = s1.getChi() + s1.getEng() + s1.getMath();
+            int s2TotalGrade = s2.getChi() + s2.getEng() + s2.getMath();
+            return -(s1TotalGrade - s2TotalGrade);
         };
 
         return Arrays.stream(this.studentArray)
