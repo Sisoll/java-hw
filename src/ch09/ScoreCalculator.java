@@ -1,6 +1,7 @@
 package ch09;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Objects;
 
 /**
@@ -183,11 +184,10 @@ public class ScoreCalculator {
 	public String[] getTop3Student() {
         return Arrays.stream(this.studentArray)
             .filter(Objects::nonNull)
-            .sorted((s1, s2) -> {
-                int s1TotalGrade = s1.getChi() + s1.getEng() + s1.getMath();
-                int s2TotalGrade = s2.getChi() + s2.getEng() + s2.getMath();
-                return -(s1TotalGrade - s2TotalGrade);
-            })
+            .sorted(
+                Comparator.comparing(
+                    student -> student.getChi() + student.getEng() + student.getMath(),
+                    Comparator.reverseOrder()))
             .limit(3)
             .map(Student::getName)
             .toArray(String[]::new);
