@@ -1,34 +1,30 @@
 package ch09;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * {
- * @Question
- * 為什麼會自己排列?
- * }
  * 
- * <pre>
+ * @Question 為什麼會自己排列? }
+ * 
+ *           <pre>
  *  
  * 3.有一陣列如下..
  * String[] names = {"William", "Lee", "Ethan", "Vera","Reds", "Lee", "William", "Ethan"};
  * 請利用Collection家族的集合類別，將names加入該集合後可去除重複名字
- * </pre>
+ *           </pre>
  * 
- * {
- * @summary
- * 如果要用set去針對物件裡面的內容也去檢查是否有重複 , 
- * 如果有實作compareTo的話,重複條件為其"比較的對象" (ex用no比的話,就不會出現相同的no)
- * 需要在Student類別內@override equals() , 
- * 如果是使用hashSet的話hashCode()也要override,
+ *           {
+ * @summary 如果要用set去針對物件裡面的內容也去檢查是否有重複 , 如果有實作compareTo的話,重複條件為其"比較的對象"
+ *          (ex用no比的話,就不會出現相同的no) 需要在Student類別內@override equals() ,
+ *          如果是使用hashSet的話hashCode()也要override,
  * 
- * }
+ *          }
  * @author SisolShie
  *
  */
@@ -36,15 +32,17 @@ public class Hw03 {
 
 	public static void main(String[] args) {
 
+		Scanner scanner = new Scanner(System.in);
+
 		String[] names = { "William", "Lee", "Ethan", "Vera", "Reds", "Lee", "William", "Ethan" };
 
 		Set<String> setUniqueName = new HashSet<>();
 		for (String name : names) {
 			setUniqueName.add(name);
 		}
-		//System.out.println(setUniqueName);
-		
-		//Supplement -----------------------------
+		System.out.println(setUniqueName);
+
+		// Supplement -----------------------------
 		Student s1 = new Student(1, "aaaa");
 		Student s2 = new Student(2, "aabbb");
 		Student s3 = new Student(3, "aaaaaa");
@@ -57,13 +55,13 @@ public class Hw03 {
 		students.add(s3);
 		students.add(s1);
 		students.add(s2);
-		// students.add(s3);
-		
+		students.add(s3);
+
 		Collections.sort(students);
 
 		System.out.println(students);
 		System.out.println();
-		
+
 	}
 
 }

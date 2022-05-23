@@ -24,7 +24,7 @@ import java.util.Objects;
  * @author SisolShie
  *
  */
-public class Student implements Comparable<Student>, Comparator<Student>{
+public class Student implements Comparable<Student>, Comparator<Student> {
 
 	// // hw4:
 
@@ -122,43 +122,28 @@ public class Student implements Comparable<Student>, Comparator<Student>{
 	@Override
 	public int compareTo(Student o) {
 		// return this.no - o.no;
-		 return this.name.charAt(0) - o.name.charAt(0);
+		return this.name.charAt(0) - o.name.charAt(0);
 
 		// <<supplement>>
-/*		int thisLength = this.name.length();
-		int oLength = o.name.length();
-		int samller;
-
-		if (thisLength - oLength < 0) {
-			samller = thisLength;
-		} else {
-			samller = oLength;
-		}
-
-		for (var i = 0; i < samller; i++) {
-			if (this.name.charAt(i) - o.name.charAt(i) == 0) {
-				if (i == samller - 1) {
-					if (thisLength == oLength) {
-						return 0;
-					} else if (thisLength < oLength) {
-						return -1;
-
-					} else {
-						return 1;
-					}
-
-				} else {
-					continue;
-				}
-
-			} else {
-				return this.name.charAt(i) - o.name.charAt(i);
-			}
-		}
-		return 0;*/
+		/*
+		 * int thisLength = this.name.length(); int oLength = o.name.length(); int
+		 * samller;
+		 * 
+		 * if (thisLength - oLength < 0) { samller = thisLength; } else { samller =
+		 * oLength; }
+		 * 
+		 * for (var i = 0; i < samller; i++) { if (this.name.charAt(i) -
+		 * o.name.charAt(i) == 0) { if (i == samller - 1) { if (thisLength == oLength) {
+		 * return 0; } else if (thisLength < oLength) { return -1;
+		 * 
+		 * } else { return 1; }
+		 * 
+		 * } else { continue; }
+		 * 
+		 * } else { return this.name.charAt(i) - o.name.charAt(i); } } return 0;
+		 */
 	}
 
-	
 	@Override
 	public String toString() {
 		return "  Student [no=" + no + ", name=" + name + "]";
@@ -170,6 +155,5 @@ public class Student implements Comparable<Student>, Comparator<Student>{
 		int totalo2 = o2.getChi() + o2.getEng() + o2.getMath();
 		return -(totalo1 - totalo2);
 	}
-	
-	
+
 }

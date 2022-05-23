@@ -15,43 +15,32 @@ package ch09;
  */
 public class NAdder {
 
-//	// hw1:
-//	public static <T> String addToN(T n) {
-//		try {
-//			long sum = 0;
-//			for (var i = (int) n; i > 0; i--) {
-//				sum += i;
-//			}
-//			return sum+"";
-//
-//		} catch (ClassCastException e) {
-//			return "input wrong";
-//		}
-//
-//	}
-
-	// hw2:
-
-	public static <T extends Number> long addToN(T n) {
-
-		try {
-			long sum = 0;
-
-			for (var i = 1; i <= (int) n; i++) {
-				sum += i;
-			}
-			return sum;
-
-		} catch (ClassCastException e) {
+	// hw1:
+	public static <T> long addToN(T n) {
+		if (!(n instanceof Number)) {
 			return 0;
 		}
 
+		long sum = 0;
+		for (var i = 1; i <= ((Number) n).longValue(); i++) {
+			sum += i;
+		}
+		return sum;
 	}
+
+	// hw2:
+//	public static <T extends Number> long addToN(T n) {
+//		long sum = 0;
+//		for (var i = 1; i <= n.longValue(); i++) {
+//			sum += i;
+//		}
+//		return sum;
+//	}
 
 	public static void main(String[] args) {
 
 		System.out.println(addToN(2.5));
-		//System.out.println(addToN("2.5"));
-		System.out.println(addToN(10000000));
+		System.out.println(addToN("2.5"));
+		System.out.println(addToN(1000));
 	}
 }

@@ -206,7 +206,6 @@ public class ScoreCalculator {
 		System.out.println(Arrays.toString(arr));
 		return arr;
 	}
-
 	// * 加入一個方法getTop3Student()，回傳3科目總合最高的前3名學生，請利用Comparator介面 加上
 	// Arrays.sort()來完成此方法
 
